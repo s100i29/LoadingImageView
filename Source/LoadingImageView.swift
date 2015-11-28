@@ -113,7 +113,7 @@ public final class LoadingImageView : UIView, NSURLSessionDownloadDelegate {
     self.commonInit()
   }
   
-  required public init(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     self.commonInit()
   }
@@ -166,7 +166,7 @@ public final class LoadingImageView : UIView, NSURLSessionDownloadDelegate {
     dispatch_async(dispatch_get_main_queue()) {
       self.updateProgressLayer(forState: self.state, progress: self.progress)
       
-      println("\(self.progress * 100)%")
+      print("\(self.progress * 100)%")
     }
   }
   
@@ -186,7 +186,7 @@ public final class LoadingImageView : UIView, NSURLSessionDownloadDelegate {
   //MARK: Network Calls
   public func downloadImage(URL: NSURL, placeholder:UIImage?)->NSURLSessionDownloadTask {
     let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-    var session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue())
+    let session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue())
     return downloadImage(URL, placeholder: placeholder, session: session)
   }
   
@@ -216,10 +216,10 @@ public final class LoadingImageView : UIView, NSURLSessionDownloadDelegate {
       let maybeAttemptReload = delegate?.shouldAttemptRetry(self)
       if let attemptReload = maybeAttemptReload {
         if attemptReload {
-          self.downloadImage(task.originalRequest.URL!, placeholder: nil)
+          self.downloadImage(task.originalRequest!.URL!, placeholder: nil)
         }
       } else {
-        self.downloadImage(task.originalRequest.URL!, placeholder: nil)
+        self.downloadImage(task.originalRequest!.URL!, placeholder: nil)
       }
       fallthrough
     default:
@@ -237,12 +237,12 @@ public final class LoadingImageView : UIView, NSURLSessionDownloadDelegate {
   }
 }
 
-extension LoadingImageView : NSURLSessionDownloadDelegate {
+extension LoadingImageView {
   
   public func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
     dispatch_async(dispatch_get_main_queue()) {
       if let err = error {
-        println("error: \(err)")
+        print("error: \(err)")
         self.state = .Errored(task as! NSURLSessionDownloadTask, err)
       } else {
         self.progress = 1.0

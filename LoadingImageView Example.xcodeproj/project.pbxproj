@@ -11,8 +11,6 @@
 		F7297CEA1A85C657002767FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7297CE81A85C657002767FB /* AppDelegate.swift */; };
 		F7297CEB1A85C657002767FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7297CE91A85C657002767FB /* ViewController.swift */; };
 		F7297CED1A85C66C002767FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7297CEC1A85C66C002767FB /* Main.storyboard */; };
-		F77A9F9B1A85CDE9007E42B4 /* Pods-LoadingImageView Example.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F77A9F991A85CDE9007E42B4 /* Pods-LoadingImageView Example.debug.xcconfig */; };
-		F77A9F9C1A85CDE9007E42B4 /* Pods-LoadingImageView Example.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F77A9F9A1A85CDE9007E42B4 /* Pods-LoadingImageView Example.release.xcconfig */; };
 		F8111E1419A951050040E7D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8111E1319A951050040E7D1 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -129,7 +127,9 @@
 		F8111DFD19A951050040E7D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Alamofire;
 				TargetAttributes = {
 					F8111E0419A951050040E7D1 = {
@@ -162,8 +162,6 @@
 			files = (
 				F8111E1419A951050040E7D1 /* Images.xcassets in Resources */,
 				F7297CED1A85C66C002767FB /* Main.storyboard in Resources */,
-				F77A9F9B1A85CDE9007E42B4 /* Pods-LoadingImageView Example.debug.xcconfig in Resources */,
-				F77A9F9C1A85CDE9007E42B4 /* Pods-LoadingImageView Example.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +248,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -318,6 +317,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezarcocu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "LoadingImageView Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/iOS Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -333,6 +333,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cezarcocu.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "LoadingImageView Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/iOS Example-Bridging-Header.h";
 			};
